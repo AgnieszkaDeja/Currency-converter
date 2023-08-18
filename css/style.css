@@ -8,7 +8,7 @@ html {
 
 .body {
     font-family: 'Montserrat', sans-serif;
-    background-image: url(https://i.postimg.cc/QxkX8GNL/na-pulpit-com-euro-monety-banknoty.jpg);
+    background-image: url("https://i.postimg.cc/QxkX8GNL/na-pulpit-com-euro-monety-banknoty.jpg");
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
