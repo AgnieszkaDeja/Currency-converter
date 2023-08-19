@@ -1,28 +1,43 @@
-let formElement = document.querySelector(".js-form")
-let quotaElement = document.querySelector(".js-quota")
-let selectElement = document.querySelector(".js-select")
-let resultElement = document.querySelector(".js-result")
+{
+    const calculateResult = (quota, select) => {
+        const euro = 0.23;
+        const sek = 2.68;
+        const funt = 0.19;
 
-let euro = 0.23;
-let sek = 2.68;
-let funt = 0.19;
+        switch (select) {
+            case "euro":
+                return quota * euro;
 
-formElement.addEventListener("input", () => {
+            case "sek":
+                return quota * sek;
 
-    let quota = quotaElement.value;
-    let select = selectElement.value;
-    let result = resultElement.value;
+            case "funt":
+                return quota * funt;
+        }
+    };
 
-    switch (select) {
-        case "euro":
-            result = quota * euro;
-            break;
-        case "sek":
-            result = quota * sek;
-            break;
-        case "funt":
-            result = quota * funt;
-            break;
+    const updateTextResult = (quota, select, result) => {
+        const resultElement = document.querySelector(".js-result")
+        resultElement.innerText = result.toFixed(2);
     }
-    resultElement.innerText = result.toFixed(2);
-});
+
+    const onFormInput = () => {
+        const quotaElement = document.querySelector(".js-quota")
+        const selectElement = document.querySelector(".js-select")
+
+        const quota = quotaElement.value;
+        const select = selectElement.value;
+
+        const result = calculateResult(quota, select);
+
+        updateTextResult(quota, select, result);
+    }
+
+    const init = () => {
+        const formElement = document.querySelector(".js-form")
+        formElement.addEventListener("input", onFormInput);
+    };
+
+    init();
+
+}
