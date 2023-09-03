@@ -21,7 +21,9 @@
         resultElement.innerText = result.toFixed(2);
     }
 
-    const onFormInput = () => {
+    const onFormInput = (event) => {
+        event.preventDefault();
+
         const quotaElement = document.querySelector(".js-quota")
         const selectElement = document.querySelector(".js-select")
 
